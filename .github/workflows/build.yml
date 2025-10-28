@@ -70,9 +70,8 @@ jobs:
         - macos-latest # ARM
         - windows-latest
         target-platform:
-        - oldest
         - latest
-        - unstable
+        - staging
 
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
