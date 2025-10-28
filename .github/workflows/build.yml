@@ -127,7 +127,7 @@ jobs:
           ~/.m2/repository/.cache/tycho
           ~/.m2/repository/.meta/p2-artifacts.properties
           ~/.m2/repository/p2
-        key: ${{ runner.os }}-${{ runner.arch }}-repo-tycho-${{ hashFiles(format('org.eclipse.epp.mpc-target/{0}.target', matrix.target-platform) }}
+        key: ${{ runner.os }}-${{ runner.arch }}-repo-tycho-${{ hashFiles(format('org.eclipse.epp.mpc-target/{0}.target', matrix.target-platform)) }}
 
 
     - name: "Install: JDK ${{ env.JAVA_VERSION }} ☕"
@@ -138,7 +138,6 @@ jobs:
 
 
     - name: Setup Maven
-      # todo change?
       uses: stCarolas/setup-maven@v5
       with:
         maven-version: 3.9.11
