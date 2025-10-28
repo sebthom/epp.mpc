@@ -105,6 +105,11 @@ jobs:
         set -eux
         sudo apt-get install --no-install-recommends -y xvfb
 
+        # prevents: Gtk-WARNING **: 22:59:43.054: Could not load a pixbuf from /org/gtk/libgtk/theme/Adwaita/assets/check-symbolic.svg.
+        sudo apt-get install --no-install-recommends -y adwaita-icon-theme librsvg2-common gdk-pixbuf2.0-bin
+        sudo gdk-pixbuf-query-loaders --update-cache
+        echo "GDK_BACKEND=x11" >> $GITHUB_ENV
+
 
     - name: "Cache: Local Maven Repository"
       uses: actions/cache@v4
